@@ -1,4 +1,4 @@
-# Buena Voluntad - VoluntariosApp
+# Buena Voluntad - VoluntariosAPI
 Plataforma para la gestión de oportunidades de voluntariado - Módulo Voluntarios.
 
 Este repositorio fue creado para contener la información relacionada con el desarrollo de la plataforma Buena Voluntad.
