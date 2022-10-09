@@ -8,9 +8,9 @@ namespace VoluntariosAPI.DTOs
 {
     public class OportunidadCreateDto
     {
-		public string Imagen { get; set; }
+		public byte[] Imagen { get; set; }
 		[Required]
-		public int OrganizacionID { get; set; }
+		public int OrganizacionID { get; set; }		
 		[Required]
 		public string Actividad { get; set; }
 		[Required]
@@ -18,22 +18,23 @@ namespace VoluntariosAPI.DTOs
 		[Required]
 		public string Rol { get; set; }
 		[Required]
-		public int EntornoID { get; set; }
+		public int EntornoID { get; set; }		
 		[Required]
-		public int IntensidadID { get; set; }
+		public int IntensidadID { get; set; }		
 		[Required]
-		public int SocialID { get; set; }
+		public int SocialID { get; set; }		
 		[Required]
 		public DateTime FechaInicio { get; set; }
 		[Required]
 		public DateTime FechaFin { get; set; }
 		[Required]
-		public int LocalidadID { get; set; }
+		public int LocalidadID { get; set; }		
 		[Required]
-		public int ProvinciaID { get; set; }
+		public int ProvinciaID { get; set; }		
 		[Required]
-		public int PaisID { get; set; }
+		public int PaisID { get; set; }		
 		[Required]
 		public DateTime FechaPublicacion { get; set; }
+		public bool Baja { get; set; }
 	}
 }

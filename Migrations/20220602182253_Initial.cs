@@ -21,16 +21,16 @@ namespace VoluntariosAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "EstadoPostulacion",
+                name: "Estadopostulacion",
                 columns: table => new
                 {
-                    EstadoPostulacionID = table.Column<int>(nullable: false)
+                    EstadopostulacionID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Estado = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EstadoPostulacion", x => x.EstadoPostulacionID);
+                    table.PrimaryKey("PK_Estadopostulacion", x => x.EstadopostulacionID);
                 });
 
             migrationBuilder.CreateTable(
@@ -302,17 +302,17 @@ namespace VoluntariosAPI.Migrations
                     OportunidadID = table.Column<int>(nullable: false),
                     VoluntarioID = table.Column<int>(nullable: true),
                     FechaPostulacion = table.Column<DateTime>(nullable: false),
-                    EstadoPostulacionID = table.Column<int>(nullable: false),
+                    EstadopostulacionID = table.Column<int>(nullable: false),
                     Mensaje = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Postulacion", x => x.PostulacionID);
                     table.ForeignKey(
-                        name: "FK_Postulacion_EstadoPostulacion_EstadoPostulacionID",
-                        column: x => x.EstadoPostulacionID,
-                        principalTable: "EstadoPostulacion",
-                        principalColumn: "EstadoPostulacionID",
+                        name: "FK_Postulacion_Estadopostulacion_EstadopostulacionID",
+                        column: x => x.EstadopostulacionID,
+                        principalTable: "Estadopostulacion",
+                        principalColumn: "EstadopostulacionID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Postulacion_Oportunidad_OportunidadID",
@@ -384,9 +384,9 @@ namespace VoluntariosAPI.Migrations
                 column: "ProvinciaID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Postulacion_EstadoPostulacionID",
+                name: "IX_Postulacion_EstadopostulacionID",
                 table: "Postulacion",
-                column: "EstadoPostulacionID");
+                column: "EstadopostulacionID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Postulacion_OportunidadID",
@@ -440,7 +440,7 @@ namespace VoluntariosAPI.Migrations
                 name: "Postulacion");
 
             migrationBuilder.DropTable(
-                name: "EstadoPostulacion");
+                name: "Estadopostulacion");
 
             migrationBuilder.DropTable(
                 name: "Oportunidad");

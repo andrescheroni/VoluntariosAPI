@@ -7,11 +7,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VoluntariosAPI.Models
 {
-    [Table("EstadoPostulacion")]
-    public class EstadoPostulacion
+    [Table("Estadopostulacion")]
+    public class Estadopostulacion
     {
         [Key]
-        public int EstadoPostulacionID { get; set; }
+        public int EstadopostulacionID { get; set; }
         [Required]
         public string Estado { get; set; }
 

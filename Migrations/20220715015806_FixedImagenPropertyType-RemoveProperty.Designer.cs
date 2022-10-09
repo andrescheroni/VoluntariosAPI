@@ -10,15 +10,15 @@ using VoluntariosAPI.Data;
 namespace VoluntariosAPI.Migrations
 {
     [DbContext(typeof(VoluntariosAPIContext))]
-    [Migration("20220602182253_Initial")]
-    partial class Initial
+    [Migration("20220715015806_FixedImagenPropertyType-RemoveProperty")]
+    partial class FixedImagenPropertyTypeRemoveProperty
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.25")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("VoluntariosAPI.Models.Entorno", b =>
@@ -101,6 +101,9 @@ namespace VoluntariosAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("Baja")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Descripcion")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -116,9 +119,6 @@ namespace VoluntariosAPI.Migrations
 
                     b.Property<DateTime>("FechaPublicacion")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Imagen")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("IntensidadID")
                         .HasColumnType("int");
@@ -174,13 +174,13 @@ namespace VoluntariosAPI.Migrations
 
                     b.Property<string>("CUIT")
                         .IsRequired()
-                        .HasColumnType("nvarchar(11)")
-                        .HasMaxLength(11);
+                        .HasMaxLength(11)
+                        .HasColumnType("nvarchar(11)");
 
                     b.Property<string>("DNIResponsable")
                         .IsRequired()
-                        .HasColumnType("nvarchar(9)")
-                        .HasMaxLength(9);
+                        .HasMaxLength(9)
+                        .HasColumnType("nvarchar(9)");
 
                     b.Property<string>("Descripcion")
                         .IsRequired()
@@ -195,9 +195,6 @@ namespace VoluntariosAPI.Migrations
 
                     b.Property<DateTime?>("FechaVerificacion")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Imagen")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("LocalidadID")
                         .HasColumnType("int");
@@ -358,9 +355,6 @@ namespace VoluntariosAPI.Migrations
                     b.Property<DateTime?>("FechaVerificacion")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Imagen")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("IntensidadID")
                         .HasColumnType("int");
 
@@ -419,6 +413,8 @@ namespace VoluntariosAPI.Migrations
                         .HasForeignKey("ProvinciaID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Provincia");
                 });
 
             modelBuilder.Entity("VoluntariosAPI.Models.Oportunidad", b =>
@@ -458,6 +454,20 @@ namespace VoluntariosAPI.Migrations
                         .HasForeignKey("SocialID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Entorno");
+
+                    b.Navigation("Intensidad");
+
+                    b.Navigation("Localidad");
+
+                    b.Navigation("Organizacion");
+
+                    b.Navigation("Pais");
+
+                    b.Navigation("Provincia");
+
+                    b.Navigation("Social");
                 });
 
             modelBuilder.Entity("VoluntariosAPI.Models.Organizacion", b =>
@@ -473,6 +483,12 @@ namespace VoluntariosAPI.Migrations
                     b.HasOne("VoluntariosAPI.Models.Provincia", "Provincia")
                         .WithMany("Organizaciones")
                         .HasForeignKey("ProvinciaID");
+
+                    b.Navigation("Localidad");
+
+                    b.Navigation("Pais");
+
+                    b.Navigation("Provincia");
                 });
 
             modelBuilder.Entity("VoluntariosAPI.Models.Postulacion", b =>
@@ -492,6 +508,12 @@ namespace VoluntariosAPI.Migrations
                     b.HasOne("VoluntariosAPI.Models.Voluntario", "Voluntario")
                         .WithMany("Postulaciones")
                         .HasForeignKey("VoluntarioID");
+
+                    b.Navigation("Estado");
+
+                    b.Navigation("Oportunidad");
+
+                    b.Navigation("Voluntario");
                 });
 
             modelBuilder.Entity("VoluntariosAPI.Models.Provincia", b =>
@@ -501,6 +523,8 @@ namespace VoluntariosAPI.Migrations
                         .HasForeignKey("PaisID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Pais");
                 });
 
             modelBuilder.Entity("VoluntariosAPI.Models.Voluntario", b =>
@@ -534,6 +558,90 @@ namespace VoluntariosAPI.Migrations
                         .HasForeignKey("SocialID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Entorno");
+
+                    b.Navigation("Intensidad");
+
+                    b.Navigation("Localidad");
+
+                    b.Navigation("Pais");
+
+                    b.Navigation("Provincia");
+
+                    b.Navigation("Social");
+                });
+
+            modelBuilder.Entity("VoluntariosAPI.Models.Entorno", b =>
+                {
+                    b.Navigation("Oportunidades");
+
+                    b.Navigation("Voluntarios");
+                });
+
+            modelBuilder.Entity("VoluntariosAPI.Models.Estadopostulacion", b =>
+                {
+                    b.Navigation("Postulaciones");
+                });
+
+            modelBuilder.Entity("VoluntariosAPI.Models.Intensidad", b =>
+                {
+                    b.Navigation("Oportunidades");
+
+                    b.Navigation("Voluntarios");
+                });
+
+            modelBuilder.Entity("VoluntariosAPI.Models.Localidad", b =>
+                {
+                    b.Navigation("Oportunidades");
+
+                    b.Navigation("Organizaciones");
+
+                    b.Navigation("Voluntarios");
+                });
+
+            modelBuilder.Entity("VoluntariosAPI.Models.Oportunidad", b =>
+                {
+                    b.Navigation("Postulaciones");
+                });
+
+            modelBuilder.Entity("VoluntariosAPI.Models.Organizacion", b =>
+                {
+                    b.Navigation("Oportunidades");
+                });
+
+            modelBuilder.Entity("VoluntariosAPI.Models.Pais", b =>
+                {
+                    b.Navigation("Oportunidades");
+
+                    b.Navigation("Organizaciones");
+
+                    b.Navigation("Provincias");
+
+                    b.Navigation("Voluntarios");
+                });
+
+            modelBuilder.Entity("VoluntariosAPI.Models.Provincia", b =>
+                {
+                    b.Navigation("Localidades");
+
+                    b.Navigation("Oportunidades");
+
+                    b.Navigation("Organizaciones");
+
+                    b.Navigation("Voluntarios");
+                });
+
+            modelBuilder.Entity("VoluntariosAPI.Models.Social", b =>
+                {
+                    b.Navigation("Oportunidades");
+
+                    b.Navigation("Voluntarios");
+                });
+
+            modelBuilder.Entity("VoluntariosAPI.Models.Voluntario", b =>
+                {
+                    b.Navigation("Postulaciones");
                 });
 #pragma warning restore 612, 618
         }

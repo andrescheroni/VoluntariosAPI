@@ -15,7 +15,7 @@ namespace VoluntariosAPI.Data
         }
 
         public DbSet<Entorno> Entornos { get; set; }
-        public DbSet<EstadoPostulacion> EstadoPostulaciones { get; set; }
+        public DbSet<Estadopostulacion> Estadopostulaciones { get; set; }
         public DbSet<Intensidad> Intensidades { get; set; }
         public DbSet<Localidad> Localidades { get; set; }
         public DbSet<Oportunidad> Oportunidades { get; set; }

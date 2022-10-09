@@ -33,6 +33,15 @@ namespace VoluntariosAPI.Controllers
             return Ok(_mapper.Map<IEnumerable<ProvinciaReadDto>>(provinciaItems));
         }
 
+        //GET api/provincias/pais/{id}
+        [HttpGet("pais/{id}", Name = "GetProvinciasByPaisId")]
+        public ActionResult<IEnumerable<ProvinciaReadDto>> GetProvinciasByPaisId(int id)
+        {
+            var provinciaItems = _repository.GetProvinciasByPaisId(id);
+
+            return Ok(_mapper.Map<IEnumerable<ProvinciaReadDto>>(provinciaItems));
+        }
+
         //GET api/provincias/{id}
         [HttpGet("{id}", Name = "GetProvinciaById")]
         public ActionResult<ProvinciaReadDto> GetProvinciaById(int id)

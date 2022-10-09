@@ -11,37 +11,37 @@ using VoluntariosAPI.Models;
 
 namespace VoluntariosAPI.Controllers
 {
-    [Route("api/estadoPostulaciones")]
+    [Route("api/estadopostulaciones")]
     [ApiController]
-    public class EstadoPostulacionesController : ControllerBase
+    public class EstadopostulacionesController : ControllerBase
     {
         private readonly IVoluntarioAPIRepo _repository;
         private readonly IMapper _mapper;
 
-        public EstadoPostulacionesController(IVoluntarioAPIRepo repository, IMapper mapper)
+        public EstadopostulacionesController(IVoluntarioAPIRepo repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
 
-        //GET api/estadoPostulaciones
+        //GET api/estadopostulaciones
         [HttpGet]
-        public ActionResult<IEnumerable<EstadoPostulacionReadDto>> GetAllEstadoPostulaciones()
+        public ActionResult<IEnumerable<EstadopostulacionReadDto>> GetAllEstadopostulaciones()
         {
-            var estadoPostulacionItems = _repository.GetAllEstadoPostulaciones();
+            var estadopostulacionItems = _repository.GetAllEstadopostulaciones();
 
-            return Ok(_mapper.Map<IEnumerable<EstadoPostulacionReadDto>>(estadoPostulacionItems));
+            return Ok(_mapper.Map<IEnumerable<EstadopostulacionReadDto>>(estadopostulacionItems));
         }
 
-        //GET api/estadoPostulaciones/{id}
-        [HttpGet("{id}", Name = "GetEstadoPostulacionById")]
-        public ActionResult<EstadoPostulacionReadDto> GetEstadoPostulacionById(int id)
+        //GET api/estadopostulaciones/{id}
+        [HttpGet("{id}", Name = "GetEstadopostulacionById")]
+        public ActionResult<EstadopostulacionReadDto> GetEstadopostulacionById(int id)
         {
-            var estadoPostulacionItem = _repository.GetEstadoPostulacionById(id);
+            var estadopostulacionItem = _repository.GetEstadopostulacionById(id);
 
-            if (estadoPostulacionItem != null)
+            if (estadopostulacionItem != null)
             {
-                return Ok(_mapper.Map<EstadoPostulacionReadDto>(estadoPostulacionItem));
+                return Ok(_mapper.Map<EstadopostulacionReadDto>(estadopostulacionItem));
             }
             return NotFound();
         }

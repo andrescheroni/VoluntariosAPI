@@ -8,11 +8,11 @@ using VoluntariosAPI.Models;
 
 namespace VoluntariosAPI.Profiles
 {
-    public class EstadoPostulacionesProfile : Profile
+    public class EstadopostulacionesProfile : Profile
     {
-        public EstadoPostulacionesProfile()
+        public EstadopostulacionesProfile()
         {
-            CreateMap<EstadoPostulacion, EstadoPostulacionReadDto>();
+            CreateMap<Estadopostulacion, EstadopostulacionReadDto>();
         }
     }
 }

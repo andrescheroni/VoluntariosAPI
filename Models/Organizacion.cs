@@ -12,7 +12,7 @@ namespace VoluntariosAPI.Models
     {
         [Key]
         public int OrganizacionID { get; set; }
-        public string Imagen { get; set; }
+        public byte[] Imagen { get; set; }
         [Required]
         public string RazonSocial { get; set; }
         [Required]

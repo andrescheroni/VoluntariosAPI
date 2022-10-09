@@ -10,7 +10,7 @@ namespace VoluntariosAPI.Data
         {
             return new Organizacion {
                 OrganizacionID = 0,
-                Imagen = "c:\\Temp\\Org1.jpg",
+                //Imagen = null,
                 RazonSocial = "Greenpeace",
                 Descripcion = "Salvemos al mundo",
                 CUIT = "33-54644123-8",
@@ -37,7 +37,7 @@ namespace VoluntariosAPI.Data
                 new Organizacion
                 {
                     OrganizacionID = 1,
-                    Imagen = "c:\\Temp\\Org1.jpg",
+                    //Imagen = null,
                     RazonSocial = "Greenpeace",
                     Descripcion = "Salvemos al mundo",
                     CUIT = "33-54644123-8",
@@ -58,7 +58,7 @@ namespace VoluntariosAPI.Data
                 new Organizacion
                 {
                     OrganizacionID = 2,
-                    Imagen = "c:\\Temp\\Org2.jpg",
+                    //Imagen = null,
                     RazonSocial = "Fundacion SI",
                     Descripcion = "Ayudemos a la gente",
                     CUIT = "30-44213543-1",
@@ -79,7 +79,7 @@ namespace VoluntariosAPI.Data
                 new Organizacion
                 {
                     OrganizacionID = 3,
-                    Imagen = "c:\\Temp\\Org3.jpg",
+                    //Imagen = null,
                     RazonSocial = "Comedor Las Sonrisas",
                     Descripcion = "Demos de comer",
                     CUIT = "31-11213154-5",

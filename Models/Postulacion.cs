@@ -18,13 +18,13 @@ namespace VoluntariosAPI.Models
 		[Required]
 		public DateTime FechaPostulacion { get; set; }
 		[Required]
-		public int EstadoPostulacionID { get; set; }
+		public int EstadopostulacionID { get; set; }
 		public string Mensaje { get; set; }
 
 		//Propiedades de navegación		
 		public Oportunidad Oportunidad { get; set; }
 		public Voluntario Voluntario { get; set; }
-		public EstadoPostulacion Estado { get; set; }
+		public Estadopostulacion Estado { get; set; }
 	}
 }
 

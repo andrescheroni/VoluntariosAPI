@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,12 +25,23 @@ namespace VoluntariosAPI.Data
 
         public IEnumerable<Organizacion> GetAllOrganizaciones()
         {
-            return _context.Organizaciones.ToList();
+            return _context.Organizaciones
+                .Include(x => x.Localidad)
+                .Include(x => x.Provincia)
+                .Include(x => x.Pais)
+                .ToList();
         }
 
         public Organizacion GetOrganizacionById(int id)
-        {
-            return _context.Organizaciones.FirstOrDefault(p => p.OrganizacionID == id);
+        {            
+            var organizacionItem = _context.Organizaciones
+                .Where(x => x.OrganizacionID == id)
+                .Include(x => x.Localidad)
+                .Include(x => x.Provincia)
+                .Include(x => x.Pais)
+                .SingleOrDefault();
+
+            return organizacionItem;
         }
         
         public void CreateOrganizacion(Organizacion item)
@@ -61,12 +73,29 @@ namespace VoluntariosAPI.Data
 
         public IEnumerable<Voluntario> GetAllVoluntarios()
         {
-            return _context.Voluntarios.ToList();
+            return _context.Voluntarios
+                .Include(x => x.Localidad)
+                .Include(x => x.Provincia)
+                .Include(x => x.Pais)
+                .Include(x => x.Entorno)
+                .Include(x => x.Intensidad)
+                .Include(x => x.Social)
+                .ToList();
         }
 
         public Voluntario GetVoluntarioById(int id)
         {
-            return _context.Voluntarios.FirstOrDefault(p => p.VolutnarioID == id);
+            var voluntarioItem = _context.Voluntarios
+                .Where(x => x.VolutnarioID == id)
+                .Include(x => x.Localidad)
+                .Include(x => x.Provincia)
+                .Include(x => x.Pais)
+                .Include(x => x.Entorno)
+                .Include(x => x.Intensidad)
+                .Include(x => x.Social)
+                .SingleOrDefault();
+
+            return voluntarioItem;
         }
 
         public void CreateVoluntario(Voluntario item)
@@ -98,12 +127,36 @@ namespace VoluntariosAPI.Data
 
         public IEnumerable<Oportunidad> GetAllOportunidades()
         {
-            return _context.Oportunidades.ToList();
+            return _context.Oportunidades
+                .Include(x => x.Localidad)
+                .Include(x => x.Provincia)
+                .Include(x => x.Pais)
+                .Include(x => x.Entorno)
+                .Include(x => x.Intensidad)
+                .Include(x => x.Social)
+                .Include(x => x.Organizacion)
+                .ToList();
+        }
+
+        public IEnumerable<Oportunidad> GetOportunidadesByOrganizacionId(int id)
+        {
+            return _context.Oportunidades.Where(p => p.OrganizacionID == id).ToList();
         }
 
         public Oportunidad GetOportunidadById(int id)
         {
-            return _context.Oportunidades.FirstOrDefault(p => p.OportunidadID == id);
+            var oportunidadItem = _context.Oportunidades
+                .Where(x => x.OportunidadID == id)
+                .Include(x => x.Localidad)
+                .Include(x => x.Provincia)
+                .Include(x => x.Pais)
+                .Include(x => x.Entorno)
+                .Include(x => x.Intensidad)
+                .Include(x => x.Social)
+                .Include(x => x.Organizacion)                
+                .SingleOrDefault();
+
+            return oportunidadItem;
         }
 
         public void CreateOportunidad(Oportunidad item)
@@ -135,12 +188,41 @@ namespace VoluntariosAPI.Data
         
         public IEnumerable<Postulacion> GetAllPostulaciones()
         {
-            return _context.Postulaciones.ToList();
+            return _context.Postulaciones
+                .Include(x => x.Oportunidad)
+                .Include(x => x.Voluntario)
+                .Include(x => x.Estado)
+                .ToList();
+        }
+
+        public IEnumerable<Postulacion> GetPostulacionesByOportunidadId(int id)
+        {
+            return _context.Postulaciones.Where(p => p.OportunidadID == id)
+                .Include(x => x.Oportunidad)
+                .Include(x => x.Voluntario)
+                .Include(x => x.Estado)
+                .ToList();
+        }
+
+        public IEnumerable<Postulacion> GetPostulacionesByVoluntarioId(int id)
+        {
+            return _context.Postulaciones.Where(p => p.VoluntarioID == id)
+                .Include(x => x.Oportunidad)
+                .Include(x => x.Voluntario)
+                .Include(x => x.Estado)
+                .ToList();
         }
 
         public Postulacion GetPostulacionById(int id)
-        {
-            return _context.Postulaciones.FirstOrDefault(p => p.PostulacionID == id);
+        {            
+            var postulacionItem = _context.Postulaciones
+                .Where(x => x.PostulacionID == id)
+                .Include(x => x.Oportunidad)
+                .Include(x => x.Voluntario)
+                .Include(x => x.Estado)
+                .SingleOrDefault();
+
+            return postulacionItem;
         }
 
         public void CreatePostulacion(Postulacion item)
@@ -180,16 +262,16 @@ namespace VoluntariosAPI.Data
             return _context.Entornos.FirstOrDefault(p => p.EntornoID == id);
         }
 
-        //EstadoPostulacion
+        //Estadopostulacion
 
-        public IEnumerable<EstadoPostulacion> GetAllEstadoPostulaciones()
+        public IEnumerable<Estadopostulacion> GetAllEstadopostulaciones()
         {
-            return _context.EstadoPostulaciones.ToList();
+            return _context.Estadopostulaciones.ToList();
         }
 
-        public EstadoPostulacion GetEstadoPostulacionById(int id)
+        public Estadopostulacion GetEstadopostulacionById(int id)
         {
-            return _context.EstadoPostulaciones.FirstOrDefault(p => p.EstadoPostulacionID == id);
+            return _context.Estadopostulaciones.FirstOrDefault(p => p.EstadopostulacionID == id);
         }
 
         //Intensidad
@@ -208,6 +290,11 @@ namespace VoluntariosAPI.Data
         public IEnumerable<Localidad> GetAllLocalidades()
         {
             return _context.Localidades.ToList();
+        }
+        
+        public IEnumerable<Localidad> GetLocalidadesByProvinciaId(int id)
+        {
+            return _context.Localidades.Where(p => p.ProvinciaID == id).ToList();
         }
 
         public Localidad GetLocalidadById(int id)
@@ -234,6 +321,11 @@ namespace VoluntariosAPI.Data
             return _context.Provincias.ToList();
         }
 
+        public IEnumerable<Provincia> GetProvinciasByPaisId(int id)
+        {
+            return _context.Provincias.Where(p => p.PaisID == id).ToList();
+        }
+
         public Provincia GetProvinciaById(int id)
         {
             return _context.Provincias.FirstOrDefault(p => p.ProvinciaID == id);
@@ -249,5 +341,6 @@ namespace VoluntariosAPI.Data
         {
             return _context.Sociales.FirstOrDefault(p => p.SocialID == id);
         }
+
     }
 }

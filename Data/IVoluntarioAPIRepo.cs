@@ -23,6 +23,7 @@ namespace VoluntariosAPI.Data
 
         //Oportunidad
         IEnumerable<Oportunidad> GetAllOportunidades();
+        IEnumerable<Oportunidad> GetOportunidadesByOrganizacionId(int id);
         Oportunidad GetOportunidadById(int id);
         void CreateOportunidad(Oportunidad item);
         void UpdateOportunidad(Oportunidad item);
@@ -30,6 +31,8 @@ namespace VoluntariosAPI.Data
 
         //Postulacion
         IEnumerable<Postulacion> GetAllPostulaciones();
+        IEnumerable<Postulacion> GetPostulacionesByOportunidadId(int id);
+        IEnumerable<Postulacion> GetPostulacionesByVoluntarioId(int id);
         Postulacion GetPostulacionById(int id);
         void CreatePostulacion(Postulacion item);
         void UpdatePostulacion(Postulacion item);
@@ -39,9 +42,9 @@ namespace VoluntariosAPI.Data
         IEnumerable<Entorno> GetAllEntornos();
         Entorno GetEntornoById(int id);
 
-        //EstadoPostulacion
-        IEnumerable<EstadoPostulacion> GetAllEstadoPostulaciones();
-        EstadoPostulacion GetEstadoPostulacionById(int id);
+        //Estadopostulacion
+        IEnumerable<Estadopostulacion> GetAllEstadopostulaciones();
+        Estadopostulacion GetEstadopostulacionById(int id);
 
         //Intensidad
         IEnumerable<Intensidad> GetAllIntensidades();
@@ -49,6 +52,7 @@ namespace VoluntariosAPI.Data
 
         //Localidad
         IEnumerable<Localidad> GetAllLocalidades();
+        IEnumerable<Localidad> GetLocalidadesByProvinciaId(int id);
         Localidad GetLocalidadById(int id);
 
         //Pais
@@ -57,6 +61,7 @@ namespace VoluntariosAPI.Data
 
         //Provincia
         IEnumerable<Provincia> GetAllProvincias();
+        IEnumerable<Provincia> GetProvinciasByPaisId(int id);
         Provincia GetProvinciaById(int id);
 
         //Social

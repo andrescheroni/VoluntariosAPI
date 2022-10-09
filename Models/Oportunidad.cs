@@ -12,7 +12,7 @@ namespace VoluntariosAPI.Models
 	{
 		[Key]
 		public int OportunidadID { get; set; }
-		public string Imagen { get; set; }
+		public byte[] Imagen { get; set; }
 		[Required]
 		public int OrganizacionID { get; set; }
 		[Required]
@@ -36,6 +36,7 @@ namespace VoluntariosAPI.Models
 		public int? PaisID { get; set; }
 		[Required]
 		public DateTime FechaPublicacion { get; set; }
+		public bool Baja { get; set; }
 
 		//Propiedades de navegación
 		public Organizacion Organizacion { get; set; }

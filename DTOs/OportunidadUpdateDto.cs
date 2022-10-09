@@ -8,7 +8,7 @@ namespace VoluntariosAPI.DTOs
 {
 	public class OportunidadUpdateDto
 	{
-		public string Imagen { get; set; }
+		public byte[] Imagen { get; set; }
 		[Required]
 		public int OrganizacionID { get; set; }
 		[Required]
@@ -32,5 +32,6 @@ namespace VoluntariosAPI.DTOs
 		public int? PaisID { get; set; }
 		[Required]
 		public DateTime FechaPublicacion { get; set; }
+		public bool Baja { get; set; }
 	}
 }

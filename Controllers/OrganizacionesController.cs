@@ -29,7 +29,7 @@ namespace VoluntariosAPI.Controllers
         public ActionResult <IEnumerable<OrganizacionReadDto>> GetAllOrganizaciones()
         {
             var organizacionItems = _repository.GetAllOrganizaciones();
-            
+
             return Ok(_mapper.Map<IEnumerable<OrganizacionReadDto>>(organizacionItems));
         }
 

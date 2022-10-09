@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace VoluntariosAPI.DTOs
 {
-    public class EstadoPostulacionReadDto
+    public class EstadopostulacionReadDto
     {
-        public int EstadoPostulacionID { get; set; }        
+        public int EstadopostulacionID { get; set; }        
         public string Estado { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace VoluntariosAPI.DTOs
 		[Required]
 		public DateTime FechaPostulacion { get; set; }
 		[Required]
-		public int EstadoPostulacionID { get; set; }
+		public int EstadopostulacionID { get; set; }
 		public string Mensaje { get; set; }
 	}
 }

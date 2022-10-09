@@ -6,7 +6,6 @@ C:\source\Repos\VoluntariosAPI\bin\Debug\netcoreapp3.1\VoluntariosAPI.runtimecon
 C:\source\Repos\VoluntariosAPI\bin\Debug\netcoreapp3.1\VoluntariosAPI.runtimeconfig.dev.json
 C:\source\Repos\VoluntariosAPI\bin\Debug\netcoreapp3.1\VoluntariosAPI.dll
 C:\source\Repos\VoluntariosAPI\bin\Debug\netcoreapp3.1\VoluntariosAPI.pdb
-C:\source\Repos\VoluntariosAPI\obj\Debug\netcoreapp3.1\VoluntariosAPI.csproj.AssemblyReference.cache
 C:\source\Repos\VoluntariosAPI\obj\Debug\netcoreapp3.1\VoluntariosAPI.GeneratedMSBuildEditorConfig.editorconfig
 C:\source\Repos\VoluntariosAPI\obj\Debug\netcoreapp3.1\VoluntariosAPI.AssemblyInfoInputs.cache
 C:\source\Repos\VoluntariosAPI\obj\Debug\netcoreapp3.1\VoluntariosAPI.AssemblyInfo.cs
@@ -68,3 +67,4 @@ C:\source\Repos\VoluntariosAPI\bin\Debug\netcoreapp3.1\System.Runtime.CompilerSe
 C:\source\Repos\VoluntariosAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 C:\source\Repos\VoluntariosAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\source\Repos\VoluntariosAPI\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\source\Repos\VoluntariosAPI\obj\Debug\netcoreapp3.1\VoluntariosAPI.csproj.AssemblyReference.cache

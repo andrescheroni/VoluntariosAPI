@@ -12,7 +12,7 @@ namespace VoluntariosAPI.Profiles
     {
         public OrganizacionesProfile()
         {
-            CreateMap<Organizacion, OrganizacionReadDto>();
+            CreateMap<Organizacion, OrganizacionReadDto>();            
             CreateMap<Organizacion, OrganizacionHashDto>();
             CreateMap<OrganizacionCreateDto, Organizacion>();
             CreateMap<OrganizacionUpdateDto, Organizacion>();

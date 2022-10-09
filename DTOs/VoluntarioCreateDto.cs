@@ -8,7 +8,7 @@ namespace VoluntariosAPI.DTOs
 {
     public class VoluntarioCreateDto
     {
-		public string Imagen { get; set; }
+		public byte[] Imagen { get; set; }
 		[Required]
 		public string Nombre { get; set; }
 		[Required]

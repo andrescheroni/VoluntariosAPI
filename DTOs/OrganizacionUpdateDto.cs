@@ -9,7 +9,7 @@ namespace VoluntariosAPI.DTOs
 {
     public class OrganizacionUpdateDto
     {        
-        public string Imagen { get; set; }
+        public byte[] Imagen { get; set; }
         [Required]
         public string RazonSocial { get; set; }
         [Required]

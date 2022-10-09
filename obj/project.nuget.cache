@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3UTI5P1qY8e5Qi1mjRrFDNNfbYBePv858aYZGQfFEFbUmd4RdEoLLdoeNaXEJz9eZ0oQTh9t8+LuvgAMcFFpkw==",
+  "dgSpecHash": "4CwBb5HFo9mbIs27n4yY7F5SYn3btJ/7cntm8zm/zO8M8iMtgfDrt6DOL4aMrYNDqIy+taNbzi5w0gCRSn+dNg==",
   "success": true,
   "projectFilePath": "C:\\source\\Repos\\VoluntariosAPI\\VoluntariosAPI.csproj",
   "expectedPackageFiles": [
@@ -101,7 +101,8 @@
     "C:\\Users\\cheroni\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\cheroni\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\cheroni\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\cheroni\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\cheroni\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\cheroni\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.25\\microsoft.netcore.app.host.win-x64.3.1.25.nupkg.sha512"
   ],
   "logs": []
 }

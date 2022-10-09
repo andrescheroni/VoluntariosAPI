@@ -33,6 +33,24 @@ namespace VoluntariosAPI.Controllers
             return Ok(_mapper.Map<IEnumerable<PostulacionReadDto>>(postulacionItems));
         }
 
+        //GET api/postulaciones/oportunidad/{id}
+        [HttpGet("oportunidad/{id}", Name = "GetPostulacionesByOportunidadId")]
+        public ActionResult<IEnumerable<PostulacionReadDto>> GetPostulacionesByOportunidadId(int id)
+        {
+            var postulacionItems = _repository.GetPostulacionesByOportunidadId(id);
+
+            return Ok(_mapper.Map<IEnumerable<PostulacionReadDto>>(postulacionItems));
+        }
+
+        //GET api/postulaciones/voluntario/{id}
+        [HttpGet("voluntario/{id}", Name = "GetPostulacionesByVoluntarioId")]
+        public ActionResult<IEnumerable<PostulacionReadDto>> GetPostulacionesByVoluntarioId(int id)
+        {
+            var postulacionItems = _repository.GetPostulacionesByVoluntarioId(id);
+
+            return Ok(_mapper.Map<IEnumerable<PostulacionReadDto>>(postulacionItems));
+        }
+
         //GET api/postulaciones/{id}
         [HttpGet("{id}", Name = "GetPostulacionById")]
         public ActionResult<PostulacionReadDto> GetPostulacionById(int id)
